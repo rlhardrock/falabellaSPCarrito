@@ -15,8 +15,6 @@ plugins {
 }
 
 defaultTasks 'clear', 'test', 'aggregate'
-group 'com.exito'
-version '1.0-SNAPSHOT'
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
@@ -28,20 +26,13 @@ repositories {
     mavenCentral()
 }
 
-ext{
-    junit5Version = '3.0.0'
-    serenityVersion = '3.6.0'
-    poiVersion = '3.17'
-    slf4jVersion = '2.0.7'
-}
-
 dependencies {
-    implementation "net.serenity-bdd:serenity-junit5: ${junit5Version}"
-    implementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
-    implementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    implementation 'net.serenity-bdd:serenity-junit5:3.3.0'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.6.0'
+    implementation 'net.serenity-bdd:serenity-core:3.6.0'
     implementation group: 'org.apache.poi', name: 'poi', version: '3.17'
     implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
-    implementation "org.slf4j:slf4j-simple:${slf4jVersion}"
+    implementation 'org.slf4j:slf4j-simple:1.7.7'
 }
 
 test {
@@ -49,7 +40,7 @@ test {
 }
 
 serenity{
-    testRoot="com.amazon.runners"
+    testRoot= "co.falabella.com.runners"
     requirementsBaseDir=["src/test/resources/features/"]
     reports=["single-page-html"]
 }
