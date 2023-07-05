@@ -1,6 +1,6 @@
 #language: es
 
-Requisito: Buscar un articulo, indicar la cantidad deseada y enviarlo al carrito de compras
+Requisito: Buscar un articulo indicando la cantidad deseada y enviarlo al carrito de compras
   Como   director de diseño de habitat
   Quiero buscar articulos generales via web en Falabella
   Para   adquirir productos a traves de el carrito de compras
