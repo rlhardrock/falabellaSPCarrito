@@ -10,7 +10,6 @@ import org.openqa.selenium.Keys;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import static co.falabella.com.ui.HomeUI.TXT_BUSCAR;
