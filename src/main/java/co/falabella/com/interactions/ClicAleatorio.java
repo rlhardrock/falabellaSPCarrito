@@ -21,8 +21,7 @@ public class ClicAleatorio implements Interaction {
         int indiceAleatorio = random.nextInt(listaProductos.size());
         WebElementFacade articulo = listaProductos.get(indiceAleatorio);
         articulo.click();
-        //String productoSeleccionado = listaProductos.get(indiceAleatorio).getText();
-
+        //String productoSeleccionado = articulo.getText();
     }
 
     public static Performable clickProductoAzar(){
