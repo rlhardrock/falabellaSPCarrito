@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.util.Map;
 
 import static co.falabella.com.ui.HomeUI.TXT_BUSCAR;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class HomeTask implements Task {
 
@@ -30,6 +32,9 @@ public class HomeTask implements Task {
             throw new RuntimeException(e);
         }
         actor.attemptsTo(
+                WaitUntil.the(TXT_BUSCAR, isVisible())
+                        .forNoMoreThan(10)
+                        .seconds(),
                 Enter.theValue(inventario.get(0).get("producto"))
                         .into(TXT_BUSCAR)
                         .thenHit(Keys.ENTER)

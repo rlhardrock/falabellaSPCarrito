@@ -16,8 +16,8 @@ public class EsperarIframe implements Interaction {
         WebDriver driver = BrowsingTheWeb.as(actor).getDriver();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("const shadowRoot = arguments[0].shadowRoot; const button = shadowRoot.querySelector('.airship-btn-deny'); button.click();",
-                driver.findElement(By.cssSelector("div.airship-html-prompt-shadow")));
-
+                driver.findElement(By.cssSelector("div.airship-html-prompt-shadow"))
+        );
     }
 
     public static Performable clicNoGracias() {

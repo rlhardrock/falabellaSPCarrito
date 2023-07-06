@@ -1,6 +1,7 @@
 package co.falabella.com.stepDefinitions;
 
 import co.falabella.com.interactions.EsperarIframe;
+import co.falabella.com.tasks.CatalogoTask;
 import co.falabella.com.tasks.HomeTask;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.*;
@@ -25,7 +26,8 @@ public class CargarCarritoStepDefinition {
     public void buscarProductoDetalles() {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 EsperarIframe.clicNoGracias(),
-                HomeTask.explorarCatalogo()
+                HomeTask.explorarCatalogo(),
+                CatalogoTask.clicAzar()
         );
 
     }
