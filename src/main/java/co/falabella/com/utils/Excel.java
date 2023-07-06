@@ -1,6 +1,5 @@
 package co.falabella.com.utils;
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -8,53 +7,43 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Excel {
-    public List<Map<String, String>> leerDatosDeHojaDeExcel(String rutaDeExcel, String hojaDeExcel) throws IOException, InvalidFormatException {
-        List<Map<String, String>> datos = new ArrayList<>();
-
-        try (Workbook workbook = WorkbookFactory.create(new FileInputStream(rutaDeExcel))) {
-            Sheet sheet = workbook.getSheet(hojaDeExcel);
-            Row titulos = sheet.getRow(0);
-
-            for (Row row : sheet) {
-                if (row.getRowNum() == 0) {
-                    continue;
+    public static ArrayList<Map<String, String>> leerDatosDeHojaDeExcel(String rutaDeExcel, String hojaDeExcel) throws IOException {
+        ArrayList<Map<String, String>> arrayListDatoPlanTrabajo = new ArrayList();
+        Map<String, String> informacionProyecto = new HashMap();
+        File file = new File(rutaDeExcel);
+        FileInputStream inputStream = new FileInputStream(file);
+        XSSFWorkbook newWorkbook = new XSSFWorkbook(inputStream);
+        XSSFSheet newSheet = newWorkbook.getSheet(hojaDeExcel);
+        Iterator<Row> rowIterator = newSheet.iterator();
+        Row titulos = rowIterator.next();
+        while (rowIterator.hasNext()) {
+            Row row = rowIterator.next();
+            Iterator<Cell> cellIterator = row.cellIterator();
+            while (cellIterator.hasNext()) {
+                Cell cell = cellIterator.next();
+                cell.getColumnIndex();
+                switch (cell.getCellTypeEnum()) {
+                    case STRING:
+                        informacionProyecto.put(titulos.getCell(cell.getColumnIndex()).toString(), cell.getStringCellValue());
+                        break;
+                    case NUMERIC:
+                        informacionProyecto.put(titulos.getCell(cell.getColumnIndex()).toString(), String.valueOf((long) cell.getNumericCellValue()));
+                        break;
+                    case BLANK:
+                        informacionProyecto.put(titulos.getCell(cell.getColumnIndex()).toString(), "");
+                        break;
+                    default:
                 }
-
-                Map<String, String> informacion = new HashMap<>();
-                for (int i = 0; i < titulos.getLastCellNum(); i++) {
-                    Cell cell = row.getCell(i, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
-                    String titulo = titulos.getCell(i).getStringCellValue();
-                    String valor = obtenerValorCelda(cell);
-                    informacion.put(titulo, valor);
-                }
-
-                datos.add(informacion);
             }
+            arrayListDatoPlanTrabajo.add(informacionProyecto);
+            informacionProyecto = new HashMap();
         }
-
-        return datos;
-    }
-
-    private String obtenerValorCelda(Cell cell) {
-        if (cell == null) {
-            return "";
-        }
-
-        CellType cellType = CellType.forInt(cell.getCellType());
-        switch (cellType) {
-            case STRING:
-                return cell.getStringCellValue();
-            case NUMERIC:
-                if (DateUtil.isCellDateFormatted(cell)) {
-                    return cell.getDateCellValue().toString();
-                } else {
-                    return String.valueOf((long) cell.getNumericCellValue());
-                }
-            default:
-                return "";
-        }
+        return arrayListDatoPlanTrabajo;
     }
 }
