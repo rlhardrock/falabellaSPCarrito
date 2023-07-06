@@ -1,5 +1,6 @@
 package co.falabella.com.stepDefinitions;
 
+import co.falabella.com.interactions.DarClicAgregarAlCarro;
 import co.falabella.com.interactions.EsperarIframe;
 import co.falabella.com.interactions.HacerClicIncremento;
 import co.falabella.com.tasks.CatalogoTask;
@@ -36,6 +37,9 @@ public class CargarCarritoStepDefinition {
 
     @Cuando("envio al carrito de compras la cantidad necesitada")
     public void enviarCargarCarrito() {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                DarClicAgregarAlCarro.cargarCarro()
+        );
 
     }
 

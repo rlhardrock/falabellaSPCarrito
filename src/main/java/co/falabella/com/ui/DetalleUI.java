@@ -18,5 +18,6 @@ public class DetalleUI {
 
     public static Target BTN_CARGAR_CARRO = Target
             .the("Agregar al Carro")
-            .locatedBy("//button[@id='add-to-cart-button'");
+            .locatedBy("//button[@id='add-to-cart-button']");
+
 }
