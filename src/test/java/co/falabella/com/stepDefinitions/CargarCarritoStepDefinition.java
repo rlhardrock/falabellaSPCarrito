@@ -1,5 +1,7 @@
 package co.falabella.com.stepDefinitions;
 
+import co.falabella.com.interactions.EsperarIframe;
+import co.falabella.com.utils.HacerClicNoGracias;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.*;
 import net.serenitybdd.screenplay.actions.Open;
@@ -15,12 +17,15 @@ public class CargarCarritoStepDefinition {
 
     @Dado("abro la pagina web Falabella")
     public void abrirPaginaWebFalabella() {
-        OnStage.theActorCalled("Mercader").
-                wasAbleTo(Open.url("https://www.falabella.com.co/falabella-co"));
+        OnStage.theActorCalled("comerciante").
+                wasAbleTo(Open.url("https://www.falabella.com.co/"));
     }
 
     @Cuando("busco el producto deseado confirmando sus detalles")
     public void buscarProductoDetalles() {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                EsperarIframe.clicNoGracias()
+        );
 
     }
 
