@@ -4,6 +4,7 @@ import co.falabella.com.interactions.DarClicAgregarAlCarro;
 import co.falabella.com.interactions.EsperarIframe;
 import co.falabella.com.interactions.HacerClicIncremento;
 import co.falabella.com.tasks.CatalogoTask;
+import co.falabella.com.tasks.DetalleTask;
 import co.falabella.com.tasks.HomeTask;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.*;
@@ -30,7 +31,7 @@ public class CargarCarritoStepDefinition {
                 EsperarIframe.clicNoGracias(),
                 HomeTask.explorarCatalogo(),
                 CatalogoTask.clicAzar(),
-                HacerClicIncremento.variasVeces(3)
+                DetalleTask.procesarCantidad()
         );
 
     }
@@ -38,7 +39,7 @@ public class CargarCarritoStepDefinition {
     @Cuando("envio al carrito de compras la cantidad necesitada")
     public void enviarCargarCarrito() {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                DarClicAgregarAlCarro.cargarCarro()
+                //
         );
 
     }
