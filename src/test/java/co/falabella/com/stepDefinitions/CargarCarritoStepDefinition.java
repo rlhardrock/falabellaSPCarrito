@@ -1,7 +1,7 @@
 package co.falabella.com.stepDefinitions;
 
 import co.falabella.com.interactions.EsperarIframe;
-import co.falabella.com.utils.HacerClicNoGracias;
+import co.falabella.com.tasks.HomeTask;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.*;
 import net.serenitybdd.screenplay.actions.Open;
@@ -24,7 +24,8 @@ public class CargarCarritoStepDefinition {
     @Cuando("busco el producto deseado confirmando sus detalles")
     public void buscarProductoDetalles() {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                EsperarIframe.clicNoGracias()
+                EsperarIframe.clicNoGracias(),
+                HomeTask.explorarCatalogo()
         );
 
     }
