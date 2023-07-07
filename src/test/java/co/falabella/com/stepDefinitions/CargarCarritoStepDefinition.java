@@ -23,7 +23,7 @@ public class CargarCarritoStepDefinition {
                 wasAbleTo(Open.url("https://www.falabella.com.co/"));
     }
 
-    @Cuando("busco el producto deseado confirmando sus detalles")
+    @Cuando("busco el producto aleatorizado enviando al carrito de compras la cantidad necesitada")
     public void buscarProductoDetalles() {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 EsperarIframe.clicNoGracias(),
@@ -31,11 +31,6 @@ public class CargarCarritoStepDefinition {
                 CatalogoTask.clicAzar(),
                 DetalleTask.procesarCantidad()
         );
-
-    }
-
-    @Cuando("envio al carrito de compras la cantidad necesitada")
-    public void enviarCargarCarrito() {
 
     }
 

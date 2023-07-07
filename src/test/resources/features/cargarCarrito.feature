@@ -8,6 +8,5 @@ Requisito: Buscar un articulo indicando la cantidad deseada y enviarlo al carrit
   @BuscarAgregarCarritoExito
   Escenario: Busqueda de producto con envio al carrito
     Dado      abro la pagina web Falabella
-    Cuando    busco el producto deseado confirmando sus detalles
-    Y         envio al carrito de compras la cantidad necesitada
+    Cuando    busco el producto aleatorizado enviando al carrito de compras la cantidad necesitada
     Entonces  visualizo el carro de compras con el producto en cantidad
