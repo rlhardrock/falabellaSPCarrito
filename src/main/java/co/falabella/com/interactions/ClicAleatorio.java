@@ -5,6 +5,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Performable;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,11 +22,19 @@ public class ClicAleatorio implements Interaction {
         int indiceAleatorio = random.nextInt(listaProductos.size());
         WebElementFacade articulo = listaProductos.get(indiceAleatorio);
         articulo.click();
+
         //String productoSeleccionado = articulo.getText();
+        //actor.remember("producto que se ha seleccionado", productoSeleccionado);
+
     }
 
     public static Performable clickProductoAzar(){
         return instrumented(ClicAleatorio.class);
     }
+
+    /*
+    public static String cualProductoSeleccionado(Actor actor) {
+        return actor.recall("productoSeleccionado");
+    } */
 
 }

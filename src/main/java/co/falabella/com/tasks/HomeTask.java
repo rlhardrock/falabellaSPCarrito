@@ -34,7 +34,7 @@ public class HomeTask implements Task {
                 WaitUntil.the(TXT_BUSCAR, isVisible())
                         .forNoMoreThan(10)
                         .seconds(),
-                Enter.theValue(inventario.get(0).get("producto"))
+                Enter.theValue(inventario.get(1).get("producto"))
                         .into(TXT_BUSCAR)
                         .thenHit(Keys.ENTER)
         );

@@ -36,6 +36,12 @@ public class CargarCarritoStepDefinition {
 
     @Entonces("visualizo el carro de compras con el producto en cantidad")
     public void visualizarCarro() {
+        /*
+        OnStage.theActorInTheSpotlight().should(
+                seeThat("El producto en el carrito", Text.of(TTL_PRODUCTO_CARRITO), containsString(productoSeleccionado))
+);
+
+         */
 
     }
 }
