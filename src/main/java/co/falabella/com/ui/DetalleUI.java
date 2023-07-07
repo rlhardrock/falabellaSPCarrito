@@ -12,4 +12,8 @@ public class DetalleUI {
             .the("Agregar al Carro")
             .locatedBy("//button[@id='add-to-cart-button']");
 
+    public static Target BTN_VER_CARRO = Target
+            .the("Agregar al Carro")
+            .locatedBy("//a[@id='linkButton']");
+
 }

@@ -1,14 +1,20 @@
 package co.falabella.com.stepDefinitions;
 
+import co.falabella.com.interactions.ClicAleatorio;
 import co.falabella.com.interactions.EsperarIframe;
+import co.falabella.com.questions.ConfirmarCargaQuestion;
 import co.falabella.com.tasks.CatalogoTask;
 import co.falabella.com.tasks.DetalleTask;
 import co.falabella.com.tasks.HomeTask;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.*;
+import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import org.hamcrest.Matchers;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 public class CargarCarritoStepDefinition {
 
@@ -36,12 +42,6 @@ public class CargarCarritoStepDefinition {
 
     @Entonces("visualizo el carro de compras con el producto en cantidad")
     public void visualizarCarro() {
-        /*
-        OnStage.theActorInTheSpotlight().should(
-                seeThat("El producto en el carrito", Text.of(TTL_PRODUCTO_CARRITO), containsString(productoSeleccionado))
-);
-
-         */
 
     }
 }
