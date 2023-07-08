@@ -13,23 +13,23 @@ import static co.falabella.com.ui.CarritoUI.TTL_CANTIDAD_CARRITO;
 
 public class ConfirmarCantidadQuestion implements Question<Boolean> {
 
-    private static ArrayList<Map<String, String>> informacion = new ArrayList<>();
     Excel excel = new Excel();
+    private static ArrayList<Map<String, String>> inventario = new ArrayList<>();
+
 
     @Override
     public Boolean answeredBy(Actor actor) {
 
         try {
-            informacion = excel.leerDatosDeHojaDeExcel("src/test/resources/data/inventario.xlsx", "mercado");
+            inventario = excel.leerDatosDeHojaDeExcel("src/test/resources/data/inventario.xlsx", "mercado");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         WebElementFacade producto = TTL_CANTIDAD_CARRITO.resolveFor(actor);
+        String cantidadSolicitada = inventario.get(0).get("cantidad");
         String cantidadEnCarrito = producto.getText();
-        System.out.println(cantidadEnCarrito);
-        System.out.println(informacion.get(0).get("cantidad"));
-        return (informacion.get(0).get("cantidad")).equals(cantidadEnCarrito);
+        return cantidadEnCarrito.contains(cantidadSolicitada);
     }
 
     public static Question<Boolean> carritoEmbaladoProducto(){

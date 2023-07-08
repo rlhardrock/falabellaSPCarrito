@@ -16,7 +16,6 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 public class DetalleTask implements Task {
 
     Excel excel = new Excel();
-
     private static ArrayList<Map<String, String>> inventario = new ArrayList<>();
 
     @Override
