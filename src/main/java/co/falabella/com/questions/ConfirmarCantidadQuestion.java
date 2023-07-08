@@ -13,7 +13,7 @@ import static co.falabella.com.ui.CarritoUI.TTL_CANTIDAD_CARRITO;
 
 public class ConfirmarCantidadQuestion implements Question<Boolean> {
 
-    private  static ArrayList<Map<String, String>> informacion = new ArrayList<>();
+    private static ArrayList<Map<String, String>> informacion = new ArrayList<>();
     Excel excel = new Excel();
 
     @Override
@@ -27,10 +27,11 @@ public class ConfirmarCantidadQuestion implements Question<Boolean> {
 
         WebElementFacade producto = TTL_CANTIDAD_CARRITO.resolveFor(actor);
         String cantidadEnCarrito = producto.getText();
+        System.out.print(cantidadEnCarrito);
         return (informacion.get(0).get("cantidad")).equals(cantidadEnCarrito);
     }
 
-    public static Question<Boolean> carritoCargadoProducto(){
+    public static Question<Boolean> carritoEmbaladoProducto(){
         return new ConfirmarCantidadQuestion();
     }
 }

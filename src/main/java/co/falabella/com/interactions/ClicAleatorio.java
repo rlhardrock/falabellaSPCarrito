@@ -12,7 +12,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class ClicAleatorio implements Interaction {
 
-    private String productoSeleccionado;
+    private static String productoSeleccionado;
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -29,9 +29,7 @@ public class ClicAleatorio implements Interaction {
         return instrumented(ClicAleatorio.class);
     }
 
-    public String getProductoSeleccionado() {
+    public static String getProductoSeleccionado() {
         return productoSeleccionado;
     }
-
-
 }
