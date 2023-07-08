@@ -41,8 +41,8 @@ public class CargarCarritoStepDefinition {
     @Entonces("visualizo el carro de compras con el producto en cantidad")
     public void visualizarCarro() {
         OnStage.theActorInTheSpotlight().should(
-               // seeThat(ConfirmarCargaQuestion.carritoCargadoProducto(), Matchers.equalTo(true)),
-                seeThat(ConfirmarCantidadQuestion.carritoEmbaladoProducto(), Matchers.equalTo(false))
+                //seeThat(ConfirmarCantidadQuestion.carritoEmbaladoProducto(), Matchers.equalTo(true))
+                seeThat(ConfirmarCargaQuestion.carritoCargadoProducto(), Matchers.equalTo(true))
         );
     }
 }

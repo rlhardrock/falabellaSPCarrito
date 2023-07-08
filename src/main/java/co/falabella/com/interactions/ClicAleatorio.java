@@ -12,7 +12,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class ClicAleatorio implements Interaction {
 
-    private static String productoSeleccionado;
+    public static String productoSeleccionado;
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -20,8 +20,8 @@ public class ClicAleatorio implements Interaction {
         Random random = new Random();
         int indiceAleatorio = random.nextInt(listaProductos.size());
 
-        productoSeleccionado = listaProductos.get(indiceAleatorio).getText();
         WebElementFacade articulo = listaProductos.get(indiceAleatorio);
+        productoSeleccionado = articulo.getText();
         articulo.click();
     }
 

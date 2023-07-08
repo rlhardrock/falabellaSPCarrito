@@ -13,12 +13,12 @@ public class ConfirmarCargaQuestion implements Question <Boolean> {
     public Boolean answeredBy(Actor actor) {
         WebElementFacade producto = TTL_PRODUCTO_CARRITO.resolveFor(actor);
         String productoEnCarrito = producto.getText();
-        String productoSeleccionado = ClicAleatorio.getProductoSeleccionado();
-        return productoSeleccionado.equals(productoEnCarrito);
-        //return productoEnCarrito.equals(productoSeleccionado);
+        String productoElegido = ClicAleatorio.getProductoSeleccionado();
+        return productoEnCarrito.contains(productoElegido) || productoElegido.contains(productoEnCarrito);
     }
 
     public static Question<Boolean> carritoCargadoProducto(){
         return new ConfirmarCargaQuestion();
     }
+
 }

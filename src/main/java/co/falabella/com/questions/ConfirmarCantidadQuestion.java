@@ -27,7 +27,8 @@ public class ConfirmarCantidadQuestion implements Question<Boolean> {
 
         WebElementFacade producto = TTL_CANTIDAD_CARRITO.resolveFor(actor);
         String cantidadEnCarrito = producto.getText();
-        System.out.print(cantidadEnCarrito);
+        System.out.println(cantidadEnCarrito);
+        System.out.println(informacion.get(0).get("cantidad"));
         return (informacion.get(0).get("cantidad")).equals(cantidadEnCarrito);
     }
 
