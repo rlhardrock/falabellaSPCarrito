@@ -11,6 +11,3 @@ public class CarritoUI {
     public static final Target TTL_CANTIDAD_CARRITO = Target.the("Cantidad de Producto en carrito")
             .locatedBy("//p[@data-testid='total-products-count']");
 }
-
-
-//input[data-testid*='-quantity-input']
