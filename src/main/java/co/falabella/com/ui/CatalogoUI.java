@@ -5,6 +5,6 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class CatalogoUI {
 
-    public static Target  TTL_PRODUCTO = Target.the("Parrilla de Productos")
+    public static final Target  TTL_PRODUCTO = Target.the("Parrilla de Productos")
             .locatedBy(".pod-head a, div[id*='testId'] > .link-container > a");
 }
