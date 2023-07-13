@@ -1,0 +1,10 @@
+
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦Ú·ì’1
+v
+java:S1450"YRemove the "inventario" field and declare it as a local variable in the relevant methods.(±Ãîú8³Ú·ì’1
+G
+java:S2440"%Remove this instantiation of "Excel".( ‹Åïùÿÿÿÿ8º³µì’1
+X
+java:S2696"6Make the enclosing method "static" or remove this set.(¶×‡Óûÿÿÿÿ8¸Ú·ì’1
+W
+java:S2209"5Change this instance-reference to a static reference.(¶×‡Óûÿÿÿÿ8¹Ú·ì’1
